@@ -191,6 +191,11 @@ body.nav-active{
 .display-1{
   font-size: var(--fontSize-display-1);
   line-height: var(--lineHeight-1);
+  text-shadow: 
+    0.5px 0 0 #000, 
+    -0.5px 0 0 #000,
+    0 0.5px 0 #000, 
+    0 -0.5px 0 #000;
 }
 
 .headline-1{
