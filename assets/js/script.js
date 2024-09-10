@@ -116,7 +116,7 @@ let autoSlideInterval;
 const autoSlide = function() {
     autoSlideInterval = setInterval(function() {
         slideNext();
-    }, 5000); // Slide interval of 5 seconds
+    }, 3000); // Slide interval of 3 seconds
 }
 
 // Start auto-slide on load
