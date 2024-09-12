@@ -287,3 +287,55 @@ document.querySelectorAll('.view').forEach(function(button) {
         });
     });
 });
+
+// Overlay Birthday video
+
+// Get elements
+const videoButton = document.querySelector('.btn');
+let videoOverlay = null;  // Initialize variable for the overlay
+let closeButton = null;
+
+// Function to create the overlay only once
+function createOverlay() {
+    if (!videoOverlay) {
+        // Create video overlay div
+        videoOverlay = document.createElement('div');
+        videoOverlay.classList.add('video-overlay');
+
+        // Create video element
+        const video = document.createElement('video');
+        video.src = './assets/videos/birthday-video.mp4'; // Add your video URL here
+        video.controls = true;
+        video.autoplay = true;
+        video.classList.add('overlay-video');
+
+        // Create close button
+        closeButton = document.createElement('button');
+        closeButton.innerText = 'X';
+        closeButton.classList.add('overlay-close');
+
+        // Append elements to overlay
+        videoOverlay.appendChild(video);
+        videoOverlay.appendChild(closeButton);
+
+        // Append overlay to body
+        document.body.appendChild(videoOverlay);
+
+        // Add event listener for close button
+        closeButton.addEventListener('click', () => {
+            videoOverlay.style.display = 'none';
+        });
+    }
+}
+
+// Event listener for the Play Video button
+videoButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    // Call the function to create overlay if it doesn't exist
+    createOverlay();
+    
+    // Show the overlay and play the video
+    videoOverlay.style.display = 'flex';
+    
+});
